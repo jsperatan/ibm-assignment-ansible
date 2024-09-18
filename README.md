@@ -15,6 +15,7 @@
     - Start and enable mysql service
     - Create new database for new db user (I assumed the db user would be given privilege only to selected dbs. Database name is configurable in the variables file)
     - Create new database user and allow connection from all sources (Username and password is configurable in the variables file)
+    - Connect to database using newly created user and password to verify status
 4. Create playbook
 
 ## Setting Up - Control Node
@@ -25,6 +26,7 @@
 3. Copy the SSH public key: ```cat ~/.ssh/ansible.pub```. We will require this later on for the managed node
 
 ## Setting Up - Managed Node
+> In the case where the DB is intended to be installed locally, the control node would double as the managed node. This means that this section will be executed on the control node instead.
 1. Check if Python is installed: ```python3 --version```
 2. If not, install Python by following the instructions [here](https://phoenixnap.com/kb/how-to-install-python-3-ubuntu)
 3. Authorize the public key from the newly generated key pair: ```nano ~/.ssh/authorized_keys``` and append the public key into the file. Save and close the file.
