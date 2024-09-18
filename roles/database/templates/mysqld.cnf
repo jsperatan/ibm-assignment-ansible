@@ -4,7 +4,6 @@
 # Ref to https://dev.mysql.com/doc/refman/en/mysql-command-options.html
 
 [mysql]
-root@ip-172-31-20-221:/etc/mysql# cat mysql.conf.d/mysqld.cnf
 #
 # The MySQL database server configuration file.
 #
