@@ -11,3 +11,18 @@
     state: started
     enabled: yes
   when: ('database' in group_names)
+
+- name: Create new database
+  mysql_db:
+    name: { { db_add_user_db } }
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+  when: ('database' in group_names)
+
+- name: Create database user
+  mysql_user:
+    name: { { db_add_user_username } }
+    password: { { db_add_user_password } }
+    priv: "{{ db_add_user_db }}.*:ALL"
+    state: present
+  when: ('database' in group_names)
