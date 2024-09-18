@@ -31,4 +31,9 @@
     password: "{{ db_add_user_password }}"
     priv: "{{ db_add_user_db }}.*:ALL"
     state: present
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
   when: ('database' in group_names)

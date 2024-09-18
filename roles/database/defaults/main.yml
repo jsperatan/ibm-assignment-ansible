@@ -12,5 +12,3 @@ db_add_user_username: db-user01
 db_add_user_password: password
 db_add_user_db: db01
 db_data_dir: /var/lib/mysql
-db_bind_port: 3306
-db_bind_host: 0.0.0.0/0
