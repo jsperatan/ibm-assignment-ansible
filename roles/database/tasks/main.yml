@@ -15,12 +15,11 @@
   template:
     src: mysqld.cnf
     dest: /etc/mysql/mysql.conf.d/mysqld.cnf
-  notify: Restart mysql
 
 - name: Start mysql service
   service:
     name: mysql
-    state: started
+    state: restarted
     enabled: yes
   when: ('database' in group_names)
 
@@ -37,6 +36,5 @@
     password: "{{ db_add_user_password }}"
     priv: "{{ db_add_user_db }}.*:ALL"
     state: present
-  with_items:
-    - "%"
+    host: "%"
   when: ('database' in group_names)
