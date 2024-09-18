@@ -1,15 +1,13 @@
 ---
-
 - name: Install mysql-server
   apt:
     name: mysql-server
     update_cache: yes
-    when: ('database' in group_names)
+  when: ('database' in group_names)
 
 - name: Start mysql service
   service:
     name: mysql
     state: started
     enabled: yes
-    when: ('database' in group_names)
-
+  when: ('database' in group_names)
