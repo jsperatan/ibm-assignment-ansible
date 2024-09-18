@@ -16,6 +16,7 @@
     - Create new database for new db user (I assumed the db user would be given privilege only to selected dbs. Database name is configurable in the variables file)
     - Create new database user and allow connection from all sources (Username and password is configurable in the variables file)
     - Connect to database using newly created user and password to verify status
+        - Note that this checkpoint does not rule out the possibility of connectivity issues caused by other components such as firewall since the check is performed within the remote machine itself. I may look to improve this in future by running the check from control node instead in future
 4. Create playbook
 
 ## Setting Up - Control Node
