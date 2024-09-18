@@ -11,6 +11,12 @@
     state: present
   when: ('database' in group_names)
 
+- name: Configure mysql
+  template:
+    src: mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+  notify: Restart mysql
+
 - name: Start mysql service
   service:
     name: mysql
