@@ -38,3 +38,11 @@
     state: present
     host: "%"
   when: ('database' in group_names)
+
+- name: Test if login using new user works
+  mysql_db:
+    login_host: "{{ ansible_hostname }}"
+    login_user: "{{ db_add_user_username }}"
+    login_password: "{{ db_add_user_password }}"
+    name: "{{ db_add_user_db }}"
+    state: present
