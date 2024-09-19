@@ -12,6 +12,7 @@
 3. Create list of tasks to be executed
     - Install mysql-server using apt module
     - Install python3-mysqldb using apt module (required in order to use Ansible built-in mysql modules)
+    - Change mysqld.cnf bind address to 0.0.0.0. This is done by replacing the entire conf file with a template
     - Start and enable mysql service
     - Create new database for new db user (I assumed the db user would be given privilege only to selected dbs. Database name is configurable in the variables file)
     - Create new database user and allow connection from all sources (Username and password is configurable in the variables file)
